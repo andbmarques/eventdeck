@@ -1,8 +1,6 @@
-# API EventDeck
+# EventDeck
 
-API EventDeck é uma API de gerenciamento de eventos desenvolvido como um projeto educacional em Node.js, usando o framework Express para o backend e o banco de dados MongoDB. Ele permite que você crie e gerencie eventos com facilidade, tudo em um só lugar.
-
-Este projeto foi criado com o objetivo de aprender e praticar conceitos e técnicas em Node.js, Express e MongoDB. Ele não é destinado para uso em produção, mas sim como um exercício para aprimorar minhas habilidades com as stacks citadas.
+O Event Deck é um projeto educacional desenvolvido em ReactJS e Chakra UI, com o objetivo de fornecer uma plataforma de eventos online para fins de aprendizado e prática.
 
 ## Funcionalidades
 
@@ -13,19 +11,19 @@ Este projeto foi criado com o objetivo de aprender e praticar conceitos e técni
 
 ## Links
 
-- Repositório Front-End (Em breve)
-- [Deploy](https://api-eventdeck.onrender.com/)
+- [Repositório Back End](https://github.com/andbmarques/api-eventdeck/)
+- [Deploy](https://eventdeck.vercel.app/)
 
 ## Instalação
 
 Faça um clone do Repositório e acesse o diretório.
 
 ```bash
-git clone https://github.com/andbmarques/api-eventdeck.git
+git clone https://github.com/andbmarques/eventdeck.git
 ```
 
 ```bash
-cd api-eventdeck
+cd eventdeck
 ```
 
 Agora instale as dependências utilizando o npm.
@@ -44,9 +42,8 @@ OBS: Você deverá criar um arquivo .env na raiz do projeto e então preencher c
 
 ## Stack utilizada
 
-- NodeJS
-- Express
-- Mongoose
+- ReactJS
+- ChakraUI
 
 ## Contribuindo
 
