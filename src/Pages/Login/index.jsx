@@ -22,6 +22,7 @@ import {
   User,
 } from "phosphor-react";
 import axios from "axios";
+import { api } from "../../api";
 
 const Login = () => {
   const toast = useToast();
@@ -47,9 +48,9 @@ const Login = () => {
   };
   const handleLogin = () => {
     setIsLoading(true);
-    axios
+    api
       .post(
-        `${import.meta.env.VITE_API_URL}/${isLogin ? "auth" : "user"}`,
+        `/${isLogin ? "auth" : "user"}`,
         isLogin
           ? {
               email: emailInput,
