@@ -8,10 +8,10 @@ const Logo = () => {
       <Icon
         as={Confetti}
         color="green.500"
-        fontSize={{ sm: "3xl", md: "4xl" }}
+        fontSize={{ base: "2xl", md: "3xl" }}
         weight="bold"
       />
-      <Heading fontSize={{ sm: "xl", md: "2xl" }} color="gray.900">
+      <Heading fontSize={{ base: "xl", md: "2xl" }} color="gray.900">
         EventDeck
       </Heading>
     </Stack>

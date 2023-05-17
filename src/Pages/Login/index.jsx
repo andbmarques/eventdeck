@@ -12,7 +12,7 @@ import {
   Spinner,
   useToast,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Logo from "../../Components/Logo";
 import {
   ArrowCircleDown,
@@ -23,8 +23,13 @@ import {
 } from "phosphor-react";
 import axios from "axios";
 import { api } from "../../api";
+import AuthContext from "../../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const ctx = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const toast = useToast();
 
   const [isLogin, setIsLogin] = useState(true);
@@ -67,6 +72,8 @@ const Login = () => {
       )
       .then((result) => {
         setIsLoading(false);
+        isLogin ? ctx.setToken(result.data.token) : null;
+        isLogin ? ctx.setUserId(result.data.userId) : null;
         toast({
           title: isLogin ? "Login" : "Cadastro",
           description: isLogin
@@ -76,6 +83,7 @@ const Login = () => {
           duration: 9000,
           isClosable: true,
         });
+        isLogin ? navigate("/") : setIsLogin(true);
       })
       .catch((error) => {
         setIsLoading(false);
@@ -94,13 +102,15 @@ const Login = () => {
     <VStack p="10" gap="5">
       <Logo />
       {isLoading ? (
-        <Spinner
-          thickness="4px"
-          color="green.500"
-          size={{ sm: "lg", md: "xl" }}
-        />
+        <Spinner thickness="4px" color="green.500" size={["lg", "xl"]} />
       ) : (
-        <VStack w="md" p="10" bgColor="gray.50" borderRadius="lg" spacing="5">
+        <VStack
+          w={["xs", "md"]}
+          p="10"
+          bgColor="gray.50"
+          borderRadius="lg"
+          spacing="5"
+        >
           <Heading alignSelf="flex-start" fontSize="xl">
             {isLogin ? "Login" : "Cadastro"}
           </Heading>
