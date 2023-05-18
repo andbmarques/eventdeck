@@ -9,6 +9,7 @@ import {
   DrawerOverlay,
   HStack,
   Heading,
+  Text,
   VStack,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -22,7 +23,7 @@ const Navbar = () => {
   const ctx = useContext(AuthContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [userName, setUserName] = useState("");
+  const [user, setUser] = useState("");
 
   const handleLogout = () => {
     ctx.setToken("");
@@ -36,13 +37,18 @@ const Navbar = () => {
 
   useEffect(() => {
     api.get(`/user/${ctx.userId}`).then((result) => {
-      setUserName(result.data.name);
+      setUser(result.data);
     });
   }, []);
 
   return (
     <>
-      <HStack alignItems="center" justifyContent="space-between" p="5">
+      <HStack
+        alignItems="center"
+        justifyContent="space-between"
+        p="5"
+        px={["5", "10"]}
+      >
         <Logo />
         <HStack>
           <Button
@@ -79,11 +85,16 @@ const Navbar = () => {
           <DrawerHeader>
             <VStack p="5" spacing="8">
               <Avatar size={["2xl"]} />
-              <Heading textAlign="center">{userName}</Heading>
+              <VStack>
+                <Heading textAlign="center">{user.name}</Heading>
+                <Text color="gray.400" fontSize={"sm"}>
+                  @{user.username}
+                </Text>
+              </VStack>
             </VStack>
           </DrawerHeader>
           <DrawerBody>
-            <VStack>
+            <VStack py="5">
               <Button variant={"ghost"} color="green.500">
                 Meus Eventos
               </Button>
