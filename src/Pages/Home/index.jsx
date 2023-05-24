@@ -10,7 +10,7 @@ function Home() {
       <HStack alignItems="center" justifyContent="center" px="10" w="100%">
         <VStack
           spacing="5"
-          w={["100%", "30%"]}
+          w={["100%", "50%", "30%"]}
           alignItems="center"
           justifyContent="center"
           p="10"
@@ -36,7 +36,7 @@ function Home() {
         <VStack
           alignItems="center"
           justifyContent="center"
-          w="30%"
+          w="35%"
           p="10"
           display={["none", "flex"]}
         >

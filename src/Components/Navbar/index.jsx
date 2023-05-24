@@ -61,7 +61,7 @@ const Navbar = () => {
             Descobrir
           </Button>
           {ctx.token ? (
-            <Avatar size="sm" onClick={onOpen} />
+            <Avatar name={user.name} size="sm" onClick={onOpen} />
           ) : (
             <Button
               as="a"
@@ -84,7 +84,7 @@ const Navbar = () => {
         <DrawerContent>
           <DrawerHeader>
             <VStack p="5" spacing="8">
-              <Avatar size={["2xl"]} />
+              <Avatar name={user.name} size={["2xl"]} />
               <VStack>
                 <Heading textAlign="center">{user.name}</Heading>
                 <Text color="gray.400" fontSize={"sm"}>
@@ -98,7 +98,12 @@ const Navbar = () => {
               <Button variant={"ghost"} color="green.500">
                 Meus Eventos
               </Button>
-              <Button variant={"ghost"} color="green.500">
+              <Button
+                as="a"
+                href="/profile"
+                variant={"ghost"}
+                color="green.500"
+              >
                 Perfil
               </Button>
             </VStack>
