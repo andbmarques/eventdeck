@@ -5,6 +5,7 @@ import Login from "./Pages/Login";
 import AuthContext from "./Context/AuthContext";
 import ProfilePage from "./Pages/Profile";
 import NotFound from "./Pages/NotFound";
+import CreateEvent from "./Pages/CreateEvent";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     path: "*",
     element: <NotFound />,
   },
+  {
+    path: "/createevent",
+    element: <CreateEvent />
+  }
 ]);
 
 function App() {

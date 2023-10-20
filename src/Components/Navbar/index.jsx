@@ -61,7 +61,18 @@ const Navbar = () => {
             Descobrir
           </Button>
           {ctx.token ? (
-            <Avatar name={user.name} size="sm" onClick={onOpen} />
+            <>
+              <Button
+                as="a"
+                href="createevent"
+                color="green.500"
+                variant="ghost"
+                borderRadius="full"
+              >
+                Novo
+              </Button>
+              <Avatar mx='5' name={user.name} size="sm" onClick={onOpen} />
+            </>
           ) : (
             <Button
               as="a"
